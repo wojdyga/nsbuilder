@@ -17,7 +17,7 @@ int DimensionDescriptor::getSize() const
 
 QString DimensionDescriptor::toString() const
 {
-    return QString("%1 .. %2").arg(firstIndex).arg(size - 1);
+    return QString("%1 .. %2").arg(firstIndex).arg(size + firstIndex - 1);
 }
 
 QDebug &operator<<(QDebug &debug, const DimensionDescriptor &dim)
