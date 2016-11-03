@@ -11,6 +11,7 @@
 #include "questiondialog.h"
 #include "settingsdialog.h"
 #include "executionthread.h"
+#include "arraydimensiondialog.h"
 
 #include <QMessageBox>
 #include <QVBoxLayout>
@@ -1021,20 +1022,17 @@ void NSScheme::assignArraySizes()
 #endif
             if (id->t.arraySize == 0) {
                 Type *t = &(id->t);
-                int d = 1;
+                int dimensionNumber = 1;
                 long size = 1;
                 while (t && t->tc == Array) {
-                    long l = 0;
-                    while (0 >= (l = QInputDialog::getInteger(this,
-                                                             tr("Array dimension"),
-                                                             tr("Input number of elements in %2. dimension for array %1").arg(id->ident).arg(d), 10)))
-                        ;
-                    t->arrayDimension = l;
+                    DimensionDescriptor dimensionDescriptor = ArrayDimensionDialog::getInstance().getDimensionData(id->ident, dimensionNumber);
+                    t->arrayDimension = dimensionDescriptor;
+
 #ifdef DEBUGD
-                    qDebug() << "l:" << l << "d:" << d;
+                    qDebug() << "d:" << d << "->" << dimensionDescriptor.toString();
 #endif
-                    ++d;
-                    size *= l;
+                    dimensionNumber++;
+                    size *= dimensionDescriptor.getSize();
                     t = t->subtype;
 #ifdef DEBUGD
                     qDebug() << "t:" << t; if (t) qDebug() << "t->tc:" << t->tc;

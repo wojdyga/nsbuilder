@@ -100,27 +100,33 @@ VarIndex VarIndex::integerIndex(unsigned int i)
     return vi;
 }
 
-VarIndex VarIndex::multiIndex(QList<unsigned int> ind, QList<unsigned int> dims)
+VarIndex VarIndex::multiIndex(QList<unsigned int> indexes, QList<DimensionDescriptor> dimensions)
 {
     VarIndex vi;
     vi.tc = Array;
     vi.bv.d = Long;
 
-    unsigned int i = ind.back(); ind.pop_back();
     int result = 0;
-    unsigned int d = 1;
+    unsigned int dimensionShift = 1;
     bool error = false;
 
-    do { qDebug() << i << dims.back() << d << result;
-        if (i > dims.back()) {
-            result = -1;
-            error = true;
+    while(!error && indexes.size() > 0){
+        DimensionDescriptor dimension = dimensions.back();
+        dimensions.pop_back();
+        unsigned int index = indexes.back() - dimension.getFirstIndex();
+        indexes.pop_back();
+
+        if (index < dimension.getSize()){
+            result += index * dimensionShift;
+            dimensionShift *= dimension.getSize();
         } else {
-            result += i * d;
+            error = true;
+            result = -1;
         }
-        d = dims.back(); dims.pop_back();
-        if (ind.count() > 0) { i = ind.back() - 1; ind.pop_back(); }
-    } while (!error && (ind.count() >= 0) && (dims.count() > 0));
+
+        qDebug() << "indexes.back() =" << index << "dimensionsSizes.back() =" << dimension << "result" << result;
+    }
+
     qDebug() << "index result:" << result;
     vi.bv.val = result;
     return vi;
@@ -278,8 +284,8 @@ bool ProgramVariables::setAsXMLNode(QDomNode& node)
                             Q_ASSERT(varStruct->v.indval != 0);
                             for (unsigned l = 0; l < qMin(elemList.length(),(uint) varStruct->t.arraySize); ++l) {
                                 qDebug(elemList.item(l).firstChild().toText().data().toLocal8Bit());
-                                (*(varStruct->v.indval))[l+1].val = elemList.item(l).firstChild().toText().data().toLong();
-                                (*(varStruct->v.indval))[l+1].d = Long;
+                                (*(varStruct->v.indval))[l].val = elemList.item(l).firstChild().toText().data().toLong();
+                                (*(varStruct->v.indval))[l].d = Long;
                             }
                         }
                     }
@@ -332,13 +338,17 @@ void ProgramVariables::formatXMLNode(QDomDocument& document, QDomNode& parent)
                 a.setAttributeNode(s);
 
                 QDomAttr d = document.createAttribute("dims");
-                d.setValue(id->t.arrayDimensionsString());
+                d.setValue(id->t.arrayDimensionsSizesString());
                 a.setAttributeNode(d);
+
+                QDomAttr fi = document.createAttribute("first-indexes");
+                fi.setValue(id->t.arrayDimensionsFirstIndexesString());
+                a.setAttributeNode(fi);
 
                 a.appendChild(t);
                 type.appendChild(a);
 
-                for (int i = 1; i <= id->t.arraySize; ++i) {
+                for (int i = 0; i <= id->t.arraySize; i++) {
                     QDomElement e = document.createElement("element");
                     Q_ASSERT(id->v.indval != 0);
                     Q_ASSERT(id->v.indval->size() == id->t.arraySize + 1);

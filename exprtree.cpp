@@ -338,7 +338,7 @@ int drzewo_skladn::dimensionCount()
     }
 }
 
-QList<unsigned int> indecesList(Instruction *instruction, struct drzewo_skladn* statement, ProgramVariables *vars, QList<unsigned int> dims)
+QList<unsigned int> indexesList(Instruction *instruction, struct drzewo_skladn* statement, ProgramVariables *vars, const QList<DimensionDescriptor> &dimensions)
 {
     QList<unsigned int> inds;
     if (statement != 0) {
@@ -347,18 +347,18 @@ QList<unsigned int> indecesList(Instruction *instruction, struct drzewo_skladn* 
         case LISTA_LWYR: {
             struct drzewo_skladn *st = statement;
             while (st->typ == LISTA_WARTOSCI || st->typ == LISTA_LWYR) {
-                BaseValue b = execute_statement(instruction, st->skladnik[0], vars, dims);
+                BaseValue b = execute_statement(instruction, st->skladnik[0], vars, dimensions);
                 inds << ((b.d == Long) ? b.val : b.fval);
                 qDebug() << inds.back();
                 st = st->skladnik[1];
             }
-            BaseValue b = execute_statement(instruction, st, vars, dims);
+            BaseValue b = execute_statement(instruction, st, vars, dimensions);
             inds << ((b.d == Long) ? b.val : b.fval);
             qDebug() << inds.back();
         }
             break;
         default: {
-            BaseValue b = execute_statement(instruction, statement, vars, dims);
+            BaseValue b = execute_statement(instruction, statement, vars, dimensions);
             inds << ((b.d == Long) ? b.val : b.fval);
         }
         }
@@ -366,7 +366,7 @@ QList<unsigned int> indecesList(Instruction *instruction, struct drzewo_skladn* 
     return inds;
 }
 
-BaseValue execute_statement(Instruction *instruction, struct drzewo_skladn* statement, ProgramVariables *vars/*IdentsMap &idents*/, QList<unsigned int> dims)
+BaseValue execute_statement(Instruction *instruction, struct drzewo_skladn* statement, ProgramVariables *vars/*IdentsMap &idents*/, QList<DimensionDescriptor> dims)
 {
     double v1 = 0, v2 = 0;
     BaseValue retval;
@@ -388,11 +388,11 @@ BaseValue execute_statement(Instruction *instruction, struct drzewo_skladn* stat
                 if (statement->skladnik[0]->typ == ATOM_IDENT) {
                     vars->setVariableValue(vn, val);
                 } else if (statement->skladnik[0]->typ == WYR_INDEKS) {
-                    QList<unsigned int> dims = vars->byName(vn)->t.arrayDimensions();
-                    QList<unsigned int> inds = indecesList(instruction, statement->skladnik[0]->skladnik[2], vars, dims);
+                    QList<DimensionDescriptor> dims = vars->byName(vn)->t.arrayDimensions();
+                    QList<unsigned int> indexes = indexesList(instruction, statement->skladnik[0]->skladnik[2], vars, dims);
                     qDebug() << "dims:" << dims;
-                    qDebug() << "inds:" << inds;
-                    vars->setIndexedVariableValue(vn, VarIndex::multiIndex(inds, dims), val);
+                    qDebug() << "indexes:" << indexes;
+                    vars->setIndexedVariableValue(vn, VarIndex::multiIndex(indexes, dims), val);
                 }
             }
             break;
@@ -522,8 +522,8 @@ BaseValue execute_statement(Instruction *instruction, struct drzewo_skladn* stat
         }
             break;
         case WYR_INDEKS: {
-            QList<unsigned int> dims = vars->byName(statement->zmienna->ident)->t.arrayDimensions();
-            QList<unsigned int> inds = indecesList(instruction, statement->skladnik[2], vars, dims);
+            QList<DimensionDescriptor> dims = vars->byName(statement->zmienna->ident)->t.arrayDimensions();
+            QList<unsigned int> inds = indexesList(instruction, statement->skladnik[2], vars, dims);
             qDebug() << "dims:" << dims;
             qDebug() << "inds:" << inds;
             retval = vars->getIndexedVariableValue(statement->zmienna->ident, VarIndex::multiIndex(inds, dims));
@@ -633,10 +633,10 @@ BaseValue execute_statement(Instruction *instruction, struct drzewo_skladn* stat
             qDebug() << "indv:" << indv << "dims:" << dims;
             if (dims.count() > 0) {
                 if (dims.count() > 1) {
-                    if (indv > dims.front())
+                    if (indv > dims.front().getSize())
                         throw 0L;
                     dims.pop_front();
-                    indv = (indv - 1) * dims.front();
+                    indv = (indv - 1) * dims.front().getSize();
                 }
                 if (statement->skladnik[1]) {
                     BaseValue bvl = execute_statement(instruction, statement->skladnik[1], vars, dims);

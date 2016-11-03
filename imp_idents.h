@@ -5,6 +5,8 @@
 #include <QString>
 #include <QVector>
 
+#include "dimensiondescriptor.h"
+
 enum TypeConstructor
 {
     Undefined,
@@ -24,15 +26,16 @@ struct Type
     // rozmiar wektora zawierającego elementy tablicy
     int arraySize;
     // wymiar tablicy
-    unsigned int arrayDimension;
+    DimensionDescriptor arrayDimension;
     Type *subtype, *subtype2;
 
     Type(ident_val_t *_ident, TypeConstructor _tc = Undefined)
         : ident(_ident), tc(_tc), subtype(0), subtype2(0) {}
 
     QString toString() const;
-    QList<unsigned int> arrayDimensions() const;
-    QString arrayDimensionsString() const;
+    QList<DimensionDescriptor> arrayDimensions() const;
+    QString arrayDimensionsSizesString() const;
+    QString arrayDimensionsFirstIndexesString() const;
     QString arrayIndexType() const;
     static QString typeConstructorString(TypeConstructor tc);
 };

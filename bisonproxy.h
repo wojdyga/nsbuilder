@@ -22,7 +22,7 @@ struct VarIndex
     ~VarIndex();
 
     static VarIndex integerIndex(unsigned int i);
-    static VarIndex multiIndex(QList<unsigned int> ind, QList<unsigned int> dims);
+    static VarIndex multiIndex(QList<unsigned int> indexes, QList<DimensionDescriptor> dimensions);
 };
 
 class ProgramVariables : public QObject
