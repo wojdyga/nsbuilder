@@ -15,10 +15,10 @@ ArrayDimensionDialog::~ArrayDimensionDialog()
 
 DimensionDescriptor ArrayDimensionDialog::getDimensionData(const QString &arrayName, unsigned int dimensionNumber)
 {
-    static ArrayDimensionDialog dialog(0);
-    dialog.setWindowTitle(tr("Dimension %1 of \"%2\" array properties").arg(dimensionNumber).arg(arrayName));
+    static ArrayDimensionDialog *dialog = new ArrayDimensionDialog(0);
+    dialog->setWindowTitle(tr("Dimension %1 of \"%2\" array properties").arg(dimensionNumber).arg(arrayName));
     do {
-        dialog.exec();
-    } while (dialog.ui->dimSizeInput->value() <= 0);
-    return DimensionDescriptor(dialog.ui->dimSizeInput->value(), dialog.ui->firstIndexInput->value());
+        dialog->exec();
+    } while (dialog->ui->dimSizeInput->value() <= 0);
+    return DimensionDescriptor(dialog->ui->dimSizeInput->value(), dialog->ui->firstIndexInput->value());
 }
