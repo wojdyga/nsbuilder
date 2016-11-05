@@ -171,7 +171,7 @@ QString Type::toString() const
     if (tc == Variable) {
         return "number";
     } else if (tc == Array) {
-        return QString("array[1..%2] of %1").arg(subtype ? subtype->toString() : "?").arg(arrayDimension);
+        return QString("array[%2] of %1").arg(subtype ? subtype->toString() : "?").arg(arrayDimension.toString());
     } else if (tc == Function) {
         return QString("function from %1 to number").arg(subtype ? subtype->toString() : "?");
     } else if (tc == Product) {
@@ -188,44 +188,25 @@ QString Type::toString() const
     return "?";
 }
 
-QList<unsigned int> Type::arrayDimensions() const
+QList<DimensionDescriptor> Type::arrayDimensions() const
 {
-    QList<unsigned int> retval;
-
-    if (this->tc == Variable)
-        ; //retval << 1;
-    else if (this->tc == Array) {
-        retval = this->subtype->arrayDimensions();
-        retval.push_front(this->arrayDimension);
+    if (this->tc == Array) {
+        QList<DimensionDescriptor> dimensions = this->subtype->arrayDimensions();
+        dimensions.push_front(this->arrayDimension);
+        return dimensions;
     }
 
-    return retval;
-}
-
-QString Type::arrayDimensionsString() const
-{
-    QString retval;
-
-    foreach (unsigned int d, arrayDimensions()) {
-        retval.append(QString::number(d)).append(',') ;
-    }
-
-    retval.chop(1);
-
-    return retval;
+    return QList<DimensionDescriptor>();
 }
 
 QString Type::arrayIndexType() const
 {
     QString retval;
-
-    foreach (unsigned int d, arrayDimensions()) {
-        Q_UNUSED(d);
+    foreach (const DimensionDescriptor &dim, arrayDimensions()) {
+        Q_UNUSED(dim);
         retval.append("number, ");
     }
-
     retval.chop(2);
-
     return retval;
 }
 
@@ -355,10 +336,6 @@ bool ident_val_t::setArraySize(int size)
 #ifdef DEBUG4
             qDebug("new pointer %p", v.indval);
 #endif
-
-
-
-
         }
         v.indval->resize(size + 1);
         BaseValue bv(Double, 0.0);
@@ -367,25 +344,6 @@ bool ident_val_t::setArraySize(int size)
     }
 
     return t.tc == Array;
-}
-
-bool ident_val_t::setArrayDimensions(QList<QByteArray> dims)
-{
-    setArrayType(dims.count());
-    QByteArray buf = dims.front();
-    dims.pop_front();
-    t.arrayDimension = buf.toInt();
-
-    Type *typ = &t;
-    foreach (QByteArray buf, dims) {
-        if (typ->subtype) {
-            typ->subtype->arrayDimension = buf.toInt();
-            typ = typ->subtype;
-        } else
-            return false;
-    }
-    qDebug() << t.toString();
-    return true;
 }
 
 QString ident_val_t::valueToString() const

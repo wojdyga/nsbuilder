@@ -100,27 +100,33 @@ VarIndex VarIndex::integerIndex(unsigned int i)
     return vi;
 }
 
-VarIndex VarIndex::multiIndex(QList<unsigned int> ind, QList<unsigned int> dims)
+VarIndex VarIndex::multiIndex(QList<unsigned int> indexes, QList<DimensionDescriptor> dimensions)
 {
     VarIndex vi;
     vi.tc = Array;
     vi.bv.d = Long;
 
-    unsigned int i = ind.back(); ind.pop_back();
     int result = 0;
-    unsigned int d = 1;
+    unsigned int dimensionShift = 1;
     bool error = false;
 
-    do { qDebug() << i << dims.back() << d << result;
-        if (i > dims.back()) {
-            result = -1;
-            error = true;
+    while(!error && indexes.size() > 0){
+        DimensionDescriptor dimension = dimensions.back();
+        dimensions.pop_back();
+        unsigned int index = indexes.back() - dimension.getFirstIndex();
+        indexes.pop_back();
+
+        if (index < dimension.getSize()){
+            result += index * dimensionShift;
+            dimensionShift *= dimension.getSize();
         } else {
-            result += i * d;
+            error = true;
+            result = -1;
         }
-        d = dims.back(); dims.pop_back();
-        if (ind.count() > 0) { i = ind.back() - 1; ind.pop_back(); }
-    } while (!error && (ind.count() >= 0) && (dims.count() > 0));
+
+        qDebug() << "indexes.back() =" << index << "dimensionsSizes.back() =" << dimension << "result" << result;
+    }
+
     qDebug() << "index result:" << result;
     vi.bv.val = result;
     return vi;
@@ -220,142 +226,3 @@ void ProgramVariables::setIndexedVariableValue(const QString& name, VarIndex i, 
 #endif
     }
 }
-
-bool ProgramVariables::setAsXMLNode(QDomNode& node)
-{
-    bool retval = true;
-    QDomNodeList nodeList = node.childNodes();
-
-    for (unsigned i = 0; retval && (i < nodeList.length()); ++i) {
-        QDomNode n = nodeList.item(i);
-
-        if (n.nodeName() == "variable") {
-            QDomNodeList varChList = n.childNodes();
-
-            QString varName;
-            ident_val_t *varStruct = 0;
-
-            for (unsigned k = 0; k < varChList.length(); ++k) {
-                QDomNode vn = varChList.item(k);
-
-                if (vn.nodeName() == "name") {
-                    varName = vn.firstChild().nodeValue();
-                } else if (vn.nodeName() == "type") {
-                    QDomNode st = vn.firstChild();
-
-                    if (st.nodeName() == "long") {
-                        varStruct = new ident_val_t(0, 0L);
-                        varStruct->setTypeConstructor(Variable);
-                    } else if (st.nodeName() == "double") {
-                        varStruct = new ident_val_t(0, 0.0);
-                        varStruct->setTypeConstructor(Variable);
-                    } else if (st.nodeName() == "array") {
-                        QDomAttr size = st.toElement().attributeNode("size");
-                        long l = size.value().toLong();
-
-                        QDomAttr dims = st.toElement().attributeNode("dims");
-                        QList<QByteArray> dimsList = dims.value().toAscii().split(',');
-
-                        varStruct = new ident_val_t(0, 0L);
-                        varStruct->setArrayDimensions(dimsList);
-                        varStruct->setArraySize(l);
-                    }
-                } else if (vn.nodeName() == "value") {
-                    QDomNode st = vn.firstChild();
-
-                    if (st.nodeType() == QDomNode::TextNode) {
-                        if (varStruct && (varStruct->t.tc == Variable)) {
-                            if (varStruct->v.bval.d == Double) {
-                                varStruct->v.bval.fval = st.toText().data().toDouble();
-                            } else {
-                                varStruct->v.bval.val = st.toText().data().toLong();
-                            }
-                        }
-                    } else if (st.nodeName() == "element") {
-                        QDomNodeList elemList = vn.childNodes();
-
-                        if (varStruct && (varStruct->t.tc == Array)) {
-                            Q_ASSERT(varStruct->v.indval != 0);
-                            for (unsigned l = 0; l < qMin(elemList.length(),(uint) varStruct->t.arraySize); ++l) {
-                                qDebug(elemList.item(l).firstChild().toText().data().toLocal8Bit());
-                                (*(varStruct->v.indval))[l+1].val = elemList.item(l).firstChild().toText().data().toLong();
-                                (*(varStruct->v.indval))[l+1].d = Long;
-                            }
-                        }
-                    }
-                }
-            }
-            if (varStruct)
-                varStruct->ident = varName;
-            else {
-                varStruct = new ident_val_t(0, 0L);
-                varStruct->ident = varName;
-            }
-            m_map->insert(varName, varStruct);
-            qDebug() << "read variable" << varName << m_map->value(varName)->toString();
-        } else {
-            qDebug(QString("nodeName=%1 != variable").arg(n.nodeName()).toLocal8Bit());
-            retval = false;
-        }
-    }
-
-    return retval;
-}
-
-void ProgramVariables::formatXMLNode(QDomDocument& document, QDomNode& parent)
-{
-    QDomElement variables = document.createElement("variables");
-
-    foreach (ident_val_t *id, *m_map) {
-        if ((id->t.tc == Variable) || (id->t.tc == Array)) {
-            QDomElement var = document.createElement("variable");
-
-            QDomText v_name = document.createTextNode(id->ident);
-            QDomElement name = document.createElement("name");
-            name.appendChild(v_name);
-
-            QDomElement type = document.createElement("type");
-            QDomElement value = document.createElement("value");
-            if (id->t.tc == Variable) {
-                bool isLong = id->v.bval.d == Long;
-                QDomElement t = document.createElement(isLong ? "long" : "double");
-                type.appendChild(t);
-
-                QDomText v_value = document.createTextNode(QString::number(isLong ? id->v.bval.val : id->v.bval.fval));
-                value.appendChild(v_value);
-            } else if (id->t.tc == Array) {
-                QDomElement a = document.createElement("array");
-                QDomElement t = document.createElement("long");
-
-                QDomAttr s = document.createAttribute("size");
-                s.setValue(QString::number(id->t.arraySize));
-                a.setAttributeNode(s);
-
-                QDomAttr d = document.createAttribute("dims");
-                d.setValue(id->t.arrayDimensionsString());
-                a.setAttributeNode(d);
-
-                a.appendChild(t);
-                type.appendChild(a);
-
-                for (int i = 1; i <= id->t.arraySize; ++i) {
-                    QDomElement e = document.createElement("element");
-                    Q_ASSERT(id->v.indval != 0);
-                    Q_ASSERT(id->v.indval->size() == id->t.arraySize + 1);
-                    BaseValue bv = id->v.indval->at(i);
-                    e.appendChild(document.createTextNode(bv.toString()));
-                    value.appendChild(e);
-                }
-            }
-
-            var.appendChild(name);
-            var.appendChild(type);
-            var.appendChild(value);
-
-            variables.appendChild(var);
-        }
-    }
-
-    parent.appendChild(variables);
-}
-

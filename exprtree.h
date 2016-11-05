@@ -135,7 +135,7 @@ void wypisz_ds(struct drzewo_skladn*);
 BaseValue execute_statement(Instruction *instruction,
                             struct drzewo_skladn* statement,
                             ProgramVariables *vars,
-                            QList<unsigned int> dims=QList<unsigned int>());
+                            QList<DimensionDescriptor> dims = QList<DimensionDescriptor>());
 
 extern QString syntaxErrorText;
 extern bool typeCheckFailed;

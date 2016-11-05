@@ -2,11 +2,35 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="pl">
 <context>
-    <name>CallInstruction</name>
+    <name>ArrayDimensionDialog</name>
     <message>
-        <source>&lt;empty&gt;</source>
-        <translation type="obsolete">pusty</translation>
+        <location filename="arraydimensiondialog.ui" line="23"/>
+        <source>Dialog</source>
+        <translation>Okno wyboru</translation>
     </message>
+    <message>
+        <location filename="arraydimensiondialog.ui" line="36"/>
+        <source>Dimension size</source>
+        <translation>Ilość elementów</translation>
+    </message>
+    <message>
+        <location filename="arraydimensiondialog.ui" line="57"/>
+        <source>First Index</source>
+        <translation>Pierwszy indeks</translation>
+    </message>
+    <message>
+        <location filename="arraydimensiondialog.ui" line="90"/>
+        <source>Ok</source>
+        <translation>Ok</translation>
+    </message>
+    <message>
+        <location filename="arraydimensiondialog.cpp" line="19"/>
+        <source>Dimension %1 of &quot;%2&quot; array properties</source>
+        <translation>Właściwości wymiaru %1 w tablicy &quot;%2&quot;</translation>
+    </message>
+</context>
+<context>
+    <name>CallInstruction</name>
     <message>
         <location filename="callinstruction.cpp" line="25"/>
         <source>empty</source>
@@ -16,12 +40,12 @@
 <context>
     <name>ExecutionThread</name>
     <message>
-        <location filename="executionthread.cpp" line="132"/>
+        <location filename="executionthread.cpp" line="124"/>
         <source>Execution failed!</source>
         <translation>Wykonanie przerwane!</translation>
     </message>
     <message>
-        <location filename="executionthread.cpp" line="132"/>
+        <location filename="executionthread.cpp" line="124"/>
         <source>There was a runtime error during scheme exection</source>
         <translation>Wystąpił bład podczas wykonywania schematu</translation>
     </message>
@@ -34,35 +58,22 @@
         <translation>pusty</translation>
     </message>
     <message>
-        <location filename="inputinstruction.cpp" line="168"/>
-        <location filename="inputinstruction.cpp" line="171"/>
-        <location filename="inputinstruction.cpp" line="177"/>
+        <location filename="inputinstruction.cpp" line="166"/>
+        <location filename="inputinstruction.cpp" line="169"/>
+        <location filename="inputinstruction.cpp" line="175"/>
         <source>Input</source>
         <translation>Wejście</translation>
     </message>
     <message>
-        <location filename="inputinstruction.cpp" line="168"/>
-        <location filename="inputinstruction.cpp" line="171"/>
+        <location filename="inputinstruction.cpp" line="166"/>
+        <location filename="inputinstruction.cpp" line="169"/>
         <source>Input value for %1</source>
         <translation>Wprowadź wartość dla %1</translation>
     </message>
     <message>
-        <location filename="inputinstruction.cpp" line="177"/>
+        <location filename="inputinstruction.cpp" line="175"/>
         <source>Input value for element of array %1</source>
         <translation>Wprowadź wartość dla elementu tablicy %1</translation>
-    </message>
-</context>
-<context>
-    <name>Instruction</name>
-    <message>
-        <source>
-Syntax correct but type check failed</source>
-        <translation type="obsolete">
-Składnia poprawna,ale zawiodła kontrola typów</translation>
-    </message>
-    <message>
-        <source>Syntax correct but type check failed</source>
-        <translation type="obsolete">Składnia poprawna, ale zawiodła kontrola typów</translation>
     </message>
 </context>
 <context>
@@ -91,22 +102,6 @@ Składnia poprawna,ale zawiodła kontrola typów</translation>
         <location filename="instructioneditor.ui" line="97"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Lucida Sans; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Insert instruction comment&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation></translation>
-    </message>
-    <message>
-        <source>Additional image</source>
-        <translation type="obsolete">Dodatkowy obraz</translation>
-    </message>
-    <message>
-        <source>Clear image</source>
-        <translation type="obsolete">Usuń obraz</translation>
-    </message>
-    <message>
-        <source>Browse files ...</source>
-        <translation type="obsolete">Przeglądaj ...</translation>
-    </message>
-    <message>
-        <source>Preview TeX math expresion</source>
-        <translation type="obsolete">Podgląd wyrażenia matematycznego TeX&apos;a</translation>
     </message>
 </context>
 <context>
@@ -177,10 +172,6 @@ Składnia poprawna,ale zawiodła kontrola typów</translation>
         <translation>Pomoc</translation>
     </message>
     <message>
-        <source>FInish</source>
-        <translation type="obsolete">Zakończ</translation>
-    </message>
-    <message>
         <location filename="instructionwizard.ui" line="220"/>
         <source>&lt; Previous</source>
         <translation>&lt; Poprzedni</translation>
@@ -233,10 +224,6 @@ Składnia poprawna,ale zawiodła kontrola typów</translation>
         <translation>O NS Builder</translation>
     </message>
     <message>
-        <source>This is NS scheme builder</source>
-        <translation type="obsolete">To jest konstruktor schematów zwartych NS</translation>
-    </message>
-    <message>
         <location filename="mainwindow.cpp" line="411"/>
         <source>&amp;%1. %2</source>
         <translation>&amp;%1. %2</translation>
@@ -247,532 +234,526 @@ Składnia poprawna,ale zawiodła kontrola typów</translation>
         <translation>%1. %2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="443"/>
+        <location filename="mainwindow.cpp" line="440"/>
         <source>&amp;New</source>
         <translation>&amp;Nowy</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="444"/>
+        <location filename="mainwindow.cpp" line="441"/>
         <source>Ctrl+N</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="445"/>
+        <location filename="mainwindow.cpp" line="442"/>
         <source>Create a new file</source>
         <translation>Utwórz nowy plik</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="448"/>
+        <location filename="mainwindow.cpp" line="445"/>
         <source>&amp;Open...</source>
         <translation>&amp;Otwórz ...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="449"/>
+        <location filename="mainwindow.cpp" line="446"/>
         <source>Ctrl+O</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="450"/>
+        <location filename="mainwindow.cpp" line="447"/>
         <source>Open an existing file</source>
         <translation>Otwórz istniejący plik</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="453"/>
+        <location filename="mainwindow.cpp" line="450"/>
         <source>&amp;Save</source>
         <translation>Zapi&amp;sz</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="454"/>
+        <location filename="mainwindow.cpp" line="451"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="455"/>
+        <location filename="mainwindow.cpp" line="452"/>
         <source>Save the document to disk</source>
         <translation>Zapisz schemat na dysk</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="458"/>
+        <location filename="mainwindow.cpp" line="455"/>
         <source>Save &amp;As...</source>
         <translation>Zapisz j&amp;ako ...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="459"/>
+        <location filename="mainwindow.cpp" line="456"/>
         <source>Save the document under a new name</source>
         <translation>Zapisz schemat pod nową nazwą pliku</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="462"/>
+        <location filename="mainwindow.cpp" line="459"/>
         <source>Save a&amp;ll</source>
         <translation>Z&amp;apisz wszystko</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="463"/>
+        <location filename="mainwindow.cpp" line="460"/>
         <source>Ctrl+Shift+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="464"/>
+        <location filename="mainwindow.cpp" line="461"/>
         <source>Save all modified documents</source>
         <translation>Zapisz wszystkie zmodyfikowane dokumenty</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="467"/>
+        <location filename="mainwindow.cpp" line="464"/>
         <source>E&amp;xit</source>
         <translation>Za&amp;kończ</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="468"/>
+        <location filename="mainwindow.cpp" line="465"/>
         <source>Ctrl+Q</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="469"/>
+        <location filename="mainwindow.cpp" line="466"/>
         <source>Exit the application</source>
         <translation>Zakończ działanie programu</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="472"/>
+        <location filename="mainwindow.cpp" line="469"/>
         <source>Cu&amp;t</source>
         <translation>Wy&amp;tnij</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="473"/>
+        <location filename="mainwindow.cpp" line="470"/>
         <source>Ctrl+X</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="474"/>
+        <location filename="mainwindow.cpp" line="471"/>
         <source>Cut the current selection&apos;s contents to the clipboard</source>
         <translation>Wytnij zaznaczoną instrukcję do schowka</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="478"/>
+        <location filename="mainwindow.cpp" line="475"/>
         <source>&amp;Undo</source>
         <translation>Co&amp;fnij</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="479"/>
+        <location filename="mainwindow.cpp" line="476"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="480"/>
+        <location filename="mainwindow.cpp" line="477"/>
         <source>Undo last command</source>
         <translation>Cofnij ostatnią operację</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="483"/>
+        <location filename="mainwindow.cpp" line="480"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopiuj</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="484"/>
+        <location filename="mainwindow.cpp" line="481"/>
         <source>Ctrl+C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="485"/>
+        <location filename="mainwindow.cpp" line="482"/>
         <source>Copy the current selection&apos;s contents to the clipboard</source>
         <translation>Skopiuj zaznaczoną instrukcję do schowka</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="489"/>
+        <location filename="mainwindow.cpp" line="486"/>
         <source>&amp;Paste</source>
         <translation>&amp;Wklej</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="490"/>
+        <location filename="mainwindow.cpp" line="487"/>
         <source>Ctrl+V</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="491"/>
+        <location filename="mainwindow.cpp" line="488"/>
         <source>Paste the clipboard&apos;s contents into the current selection</source>
         <translation>Wklej zawartość schowka</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="500"/>
+        <location filename="mainwindow.cpp" line="497"/>
         <source>Cl&amp;ose</source>
         <translation>&amp;Zamknij</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="502"/>
+        <location filename="mainwindow.cpp" line="498"/>
+        <source>Ctrl+W</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="500"/>
         <source>Close the active window</source>
         <translation>Zamknij aktywne okno</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="506"/>
+        <location filename="mainwindow.cpp" line="504"/>
         <source>Close &amp;All</source>
         <translation>Zamknij &amp;wszystkie</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="507"/>
+        <location filename="mainwindow.cpp" line="505"/>
         <source>Close all the windows</source>
         <translation>Zamknij wszystkie okna</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="511"/>
+        <location filename="mainwindow.cpp" line="509"/>
         <source>&amp;Tile</source>
         <translation>&amp;Ułóż</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="512"/>
+        <location filename="mainwindow.cpp" line="510"/>
         <source>Tile the windows</source>
         <translation>Ułóż okna</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="515"/>
+        <location filename="mainwindow.cpp" line="513"/>
         <source>&amp;Cascade</source>
         <translation>&amp;Kaskadowo</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="516"/>
+        <location filename="mainwindow.cpp" line="514"/>
         <source>Cascade the windows</source>
         <translation>Ułóż okna kaskadowo</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="519"/>
+        <location filename="mainwindow.cpp" line="517"/>
         <source>Ne&amp;xt</source>
         <translation>&amp;Następny</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="520"/>
+        <location filename="mainwindow.cpp" line="518"/>
         <source>Ctrl+F6</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="521"/>
+        <location filename="mainwindow.cpp" line="519"/>
         <source>Move the focus to the next window</source>
         <translation>Przełącz do nastęnego okna</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="525"/>
+        <location filename="mainwindow.cpp" line="523"/>
         <source>Pre&amp;vious</source>
         <translation>&amp;Poprzedni</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="526"/>
+        <location filename="mainwindow.cpp" line="524"/>
         <source>Ctrl+Shift+F6</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="527"/>
+        <location filename="mainwindow.cpp" line="525"/>
         <source>Move the focus to the previous window</source>
         <translation>Przełącz do nastęnego okna</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="535"/>
+        <location filename="mainwindow.cpp" line="533"/>
         <source>&amp;About</source>
         <translation>O &amp;programie</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="536"/>
+        <location filename="mainwindow.cpp" line="534"/>
         <source>Show the application&apos;s About box</source>
         <translation>Pokaż okienko z informacją o programie</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="539"/>
+        <location filename="mainwindow.cpp" line="537"/>
         <source>About &amp;Qt</source>
         <translation>O &amp;Qt</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="540"/>
+        <location filename="mainwindow.cpp" line="538"/>
         <source>Show the Qt library&apos;s About box</source>
         <translation>Pokaż okienko z informacją o bibliotece Qt</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="543"/>
+        <location filename="mainwindow.cpp" line="541"/>
         <source>Append instruction</source>
         <translation>Dołącz instrukcję</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="544"/>
+        <location filename="mainwindow.cpp" line="542"/>
         <source>Appends instruction to the end of current instruction</source>
         <translation>Dołącz instrukcję na koniec bieżącej sekwencji</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="547"/>
+        <location filename="mainwindow.cpp" line="545"/>
         <source>Insert instruction</source>
         <translation>Wstaw instrukcję</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="548"/>
+        <location filename="mainwindow.cpp" line="546"/>
         <source>Inserts instruction before current instruction</source>
         <translation>Wstaw instrukcję przed wybraną instrukcją</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="551"/>
+        <location filename="mainwindow.cpp" line="549"/>
         <source>Edit instruction</source>
         <translation>Edytuj instrukcję</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="552"/>
+        <location filename="mainwindow.cpp" line="550"/>
         <source>Edits current instruction</source>
         <translation>Edytuj zaznaczoną instrukcję</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="555"/>
+        <location filename="mainwindow.cpp" line="553"/>
         <source>Remove instruction</source>
         <translation>Usuń instrukcję</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="557"/>
+        <location filename="mainwindow.cpp" line="555"/>
         <source>Removes selected instruction</source>
         <translation>Usuń zaznaczoną instrukcję</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="568"/>
+        <location filename="mainwindow.cpp" line="566"/>
         <source>Export scheme</source>
         <translation>Eksportuj schemat</translation>
     </message>
     <message>
-        <source>Export scheme to image file</source>
-        <translation type="obsolete">Eksportuj schemat do pliku graficznego</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.cpp" line="584"/>
+        <location filename="mainwindow.cpp" line="582"/>
         <source>Email scheme</source>
         <translation>Wyślij schemat</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="585"/>
+        <location filename="mainwindow.cpp" line="583"/>
         <source>Email this scheme as attachment</source>
         <translation>Wyślij ten schemat jako załącznik</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="589"/>
+        <location filename="mainwindow.cpp" line="587"/>
         <source>F9</source>
         <translation>F9</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="598"/>
+        <location filename="mainwindow.cpp" line="596"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="609"/>
+        <location filename="mainwindow.cpp" line="607"/>
         <source>&amp;File</source>
         <translation>&amp;Plik</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="618"/>
+        <location filename="mainwindow.cpp" line="616"/>
         <source>&amp;Edit</source>
         <translation>&amp;Edycja</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="625"/>
+        <location filename="mainwindow.cpp" line="623"/>
         <source>&amp;Scheme</source>
         <translation>&amp;Schemat</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="634"/>
+        <location filename="mainwindow.cpp" line="631"/>
         <source>&amp;Instructions</source>
         <translation>&amp;Instrukcje</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="646"/>
+        <location filename="mainwindow.cpp" line="643"/>
         <source>&amp;Window</source>
         <translation>&amp;Okno</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="651"/>
+        <location filename="mainwindow.cpp" line="648"/>
         <source>&amp;Help</source>
         <translation>&amp;Pomoc</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="658"/>
+        <location filename="mainwindow.cpp" line="655"/>
         <source>File</source>
         <translation>Plik</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="664"/>
+        <location filename="mainwindow.cpp" line="661"/>
         <source>Edit</source>
         <translation>Edycja</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="670"/>
+        <location filename="mainwindow.cpp" line="667"/>
         <source>Scheme</source>
         <translation>Schemat</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="679"/>
+        <location filename="mainwindow.cpp" line="675"/>
         <source>Instructions</source>
         <translation>Instrukcje</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="694"/>
+        <location filename="mainwindow.cpp" line="690"/>
         <source>Ready</source>
         <translation>Gotowy</translation>
     </message>
     <message>
-        <source>NS scheme wizard</source>
-        <translation type="obsolete">Kreator schematu zwartego</translation>
-    </message>
-    <message>
         <location filename="mainwindow.cpp" line="174"/>
-        <source>NS schemes (*.nss)</source>
+        <source>NS schemes(*.nss)</source>
+        <oldsource>NS schemes (*.nss)</oldsource>
         <translation>Schemat zwarte NS (*.nss)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="174"/>
-        <source>Any files (*.*)</source>
-        <translation>Wszystkie pliki (*.*)</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.cpp" line="497"/>
+        <location filename="mainwindow.cpp" line="494"/>
         <source>Edit application&apos;s settings</source>
         <translation>Edytuj ustawienia aplikacji</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="496"/>
+        <location filename="mainwindow.cpp" line="493"/>
         <source>&amp;Settings</source>
         <translation>&amp;Ustawienia</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="266"/>
-        <source>&lt;h1&gt;This is NS scheme builder.&lt;/h1&gt;&lt;p&gt;Version: %1&lt;br/&gt;URL: &lt;a href=&quot;http://cs.pollub.pl/~awojdyga/nsbuilder/&quot;&gt;http://cs.pollub.pl/~awojdyga/nsbuilder/&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Windows installer: Jakub Kosid&amp;#0322;o&lt;/p&gt;</source>
+        <source>&lt;h1&gt;This is NS scheme builder.&lt;/h1&gt;&lt;p&gt;Original author: Aleksander Wojdyga&lt;br/&gt;Version: %1&lt;br/&gt;URL: &lt;a href=&quot;https://github.com/nsbuilder-hub/nsbuilder&quot;&gt;https://github.com/nsbuilder-hub/nsbuilder&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Windows installer: Jakub Kosid&amp;#0322;o&lt;/p&gt;</source>
+        <oldsource>&lt;h1&gt;This is NS scheme builder.&lt;/h1&gt;&lt;p&gt;Version: %1&lt;br/&gt;URL: &lt;a href=&quot;http://cs.pollub.pl/~awojdyga/nsbuilder/&quot;&gt;http://cs.pollub.pl/~awojdyga/nsbuilder/&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Windows installer: Jakub Kosid&amp;#0322;o&lt;/p&gt;</oldsource>
         <translation>&lt;h1&gt;To jest konstruktor schematów NS&lt;/h1&gt;&lt;p&gt;Wersja: %1&lt;br/&gt;URL: &lt;a href=&quot;http://cs.pollub.pl/~awojdyga/nsbuilder/&quot;&gt;http://cs.pollub.pl/~awojdyga/nsbuilder/&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Instalator dla Windows: Jakub Kosid&amp;#0322;o&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="501"/>
-        <source>Ctrl+w</source>
-        <translation>Ctrl+w</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.cpp" line="588"/>
+        <location filename="mainwindow.cpp" line="586"/>
         <source>Run</source>
         <translation>Uruchom</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="590"/>
+        <location filename="mainwindow.cpp" line="588"/>
         <source>Run scheme</source>
         <translation>Uruchom schemat</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="593"/>
+        <location filename="mainwindow.cpp" line="591"/>
         <source>Stop</source>
         <translation>Zatrzymaj</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="594"/>
+        <location filename="mainwindow.cpp" line="592"/>
         <source>Stop execution</source>
         <translation>Zatrzymaj wykonywanie</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="597"/>
+        <location filename="mainwindow.cpp" line="595"/>
         <source>Next</source>
         <translation>Następna</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="599"/>
+        <location filename="mainwindow.cpp" line="597"/>
         <source>Next instruction</source>
         <translation>Następna instrukcja</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="602"/>
+        <location filename="mainwindow.cpp" line="600"/>
         <source>Continue</source>
         <translation>Kontynuuj</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="603"/>
+        <location filename="mainwindow.cpp" line="601"/>
         <source>Continue execution</source>
         <translation>Kontynuuj wykonywanie</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="640"/>
+        <location filename="mainwindow.cpp" line="637"/>
         <source>E&amp;xecution</source>
         <translation>&amp;Uruchamianie</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="685"/>
-        <location filename="mainwindow.cpp" line="755"/>
+        <location filename="mainwindow.cpp" line="681"/>
+        <location filename="mainwindow.cpp" line="751"/>
+        <location filename="mainwindow.cpp" line="784"/>
         <location filename="mainwindow.cpp" line="788"/>
-        <location filename="mainwindow.cpp" line="792"/>
-        <location filename="mainwindow.cpp" line="797"/>
-        <location filename="mainwindow.cpp" line="812"/>
+        <location filename="mainwindow.cpp" line="793"/>
+        <location filename="mainwindow.cpp" line="808"/>
         <source>Execution</source>
         <translation>Wykonywanie</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="755"/>
+        <location filename="mainwindow.cpp" line="751"/>
         <source>Cannot run procedure or function.</source>
         <translation>Nie mogę uruchomić procedury lub funkcji.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="788"/>
+        <location filename="mainwindow.cpp" line="784"/>
         <source>No active NS scheme</source>
         <translation>Brak aktywnego schematu</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="792"/>
+        <location filename="mainwindow.cpp" line="788"/>
         <source>Scheme does not contain Pascal code</source>
         <translation>Schemat nie zawiera kodu w Pascalu</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="798"/>
+        <location filename="mainwindow.cpp" line="794"/>
         <source>&lt;center&gt;All schemes have to be saved before execution.&lt;p&gt;Save all now?</source>
         <translation>&lt;center&gt;Wszystkie schematy muszą być zapisane przed wykonywaniem.&lt;p&gt;Zapisać wszystkie teraz?</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="812"/>
+        <location filename="mainwindow.cpp" line="808"/>
         <source>Already executing scheme</source>
         <translation>Schemat jest już wykonywany</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="313"/>
-        <location filename="mainwindow.cpp" line="560"/>
+        <location filename="mainwindow.cpp" line="558"/>
         <source>Edit scheme properties</source>
         <translation>Edytuj właściwości schematu</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="561"/>
+        <location filename="mainwindow.cpp" line="174"/>
+        <source>Any files(*.*)</source>
+        <translation>Wszystkie pliki (*.*)</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="559"/>
         <source>Edit scheme name and comment</source>
         <translation>Edytuj nazwę i komentarz schematu</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="564"/>
+        <location filename="mainwindow.cpp" line="562"/>
         <source>Edit variables</source>
         <translation>Edytuj zmienne</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="565"/>
+        <location filename="mainwindow.cpp" line="563"/>
         <source>Edit variables&apos; name and value</source>
         <translation>Edytuj nazwy i wartości zmiennych</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="569"/>
+        <location filename="mainwindow.cpp" line="567"/>
         <source>Export scheme to PNG image file</source>
         <translation>Eksportuj schemat do pliku graficznego PNG</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="572"/>
+        <location filename="mainwindow.cpp" line="570"/>
         <source>Export scheme to SVG image</source>
         <translation>Eksportuj schemat do pliku graficznego SVG</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="573"/>
+        <location filename="mainwindow.cpp" line="571"/>
         <source>Export scheme to SVG image file</source>
         <translation>Eksportuj schemat do pliku graficznego SVG</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="556"/>
+        <location filename="mainwindow.cpp" line="554"/>
         <source>Delete</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="576"/>
+        <location filename="mainwindow.cpp" line="574"/>
         <source>Put SVG scheme file to server</source>
         <translation>Wyślij schemat SVG na serwer</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="577"/>
+        <location filename="mainwindow.cpp" line="575"/>
         <source>Put SVG file to server</source>
         <translation>Wyślij plik SVG na serwer</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="580"/>
-        <location filename="mainwindow.cpp" line="581"/>
+        <location filename="mainwindow.cpp" line="578"/>
+        <location filename="mainwindow.cpp" line="579"/>
         <source>Put NSS scheme file to server</source>
         <translation>Wyślij schemat NSS na serwer</translation>
     </message>
@@ -780,228 +761,178 @@ Składnia poprawna,ale zawiodła kontrola typów</translation>
 <context>
     <name>NSScheme</name>
     <message>
-        <source>Choose file to export scheme to</source>
-        <translation type="obsolete">Wybierz plik, do którego wyeksportować schemat</translation>
-    </message>
-    <message>
-        <source>PNG images (*.png); All files (*.*)</source>
-        <translation type="obsolete">Obrazy PNG (*.png)</translation>
-    </message>
-    <message>
-        <location filename="nsscheme.cpp" line="448"/>
-        <location filename="nsscheme.cpp" line="450"/>
-        <location filename="nsscheme.cpp" line="496"/>
-        <location filename="nsscheme.cpp" line="500"/>
+        <location filename="nsscheme.cpp" line="442"/>
+        <location filename="nsscheme.cpp" line="444"/>
+        <location filename="nsscheme.cpp" line="490"/>
+        <location filename="nsscheme.cpp" line="494"/>
         <source>NS Builder - export status</source>
         <translation>NS Builder - stan eksportu</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="448"/>
+        <location filename="nsscheme.cpp" line="442"/>
         <source>Export to image file succesful</source>
         <translation>Eksport do pliku graficznego pomyślny</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="450"/>
+        <location filename="nsscheme.cpp" line="444"/>
         <source>Export to image file failed</source>
         <translation>Eksport do pliku graficznego niepomyślny</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="676"/>
+        <location filename="nsscheme.cpp" line="668"/>
         <source>scheme%1.nss</source>
         <translation>schemat%1.nss</translation>
     </message>
     <message>
-        <source>NSBuilder - choose a filename to sane under</source>
-        <translation type="obsolete">NSBuilder - wybierz nazwę pliku do zapisana schematu</translation>
-    </message>
-    <message>
-        <location filename="nsscheme.cpp" line="716"/>
+        <location filename="nsscheme.cpp" line="708"/>
         <source>NS schemes (*.nss)</source>
         <translation>Schemat zwarte NS (*.nss)</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="441"/>
+        <location filename="nsscheme.cpp" line="435"/>
         <source>PNG images (*.png)</source>
         <translation>Obrazy PNG (*.png)</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="441"/>
-        <location filename="nsscheme.cpp" line="488"/>
-        <location filename="nsscheme.cpp" line="716"/>
+        <location filename="nsscheme.cpp" line="435"/>
+        <location filename="nsscheme.cpp" line="482"/>
+        <location filename="nsscheme.cpp" line="708"/>
         <source>Any files (*.*)</source>
         <translation>Wszystkie pliki (*.*)</translation>
     </message>
     <message>
-        <source>Edit instruction</source>
-        <translation type="obsolete">Edytuj instrukcję</translation>
-    </message>
-    <message>
-        <location filename="nsscheme.cpp" line="858"/>
+        <location filename="nsscheme.cpp" line="848"/>
         <source>Modified file</source>
         <translation>Plik zmodyfikowano</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="859"/>
+        <location filename="nsscheme.cpp" line="849"/>
         <source>Do you want to save changes
 before closing this file</source>
         <translation>Czy chcesz zapisać zmiany
 przed zamknięciem tego pliku?</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="719"/>
+        <location filename="nsscheme.cpp" line="711"/>
         <source>NSBuilder - choose a filename to save under</source>
         <translation>NSBuilder - wybierz nazwę pliku do zapisania</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="303"/>
+        <location filename="nsscheme.cpp" line="291"/>
         <source>Syntax error</source>
         <translation>Błąd składniowy</translation>
     </message>
     <message>
-        <source>There is a syntax error in the instruction contents</source>
-        <translation type="obsolete">W treści instrukcji znajduje się błąd składniowy</translation>
-    </message>
-    <message>
-        <location filename="nsscheme.cpp" line="999"/>
+        <location filename="nsscheme.cpp" line="997"/>
         <source>Execution</source>
         <translation>Wykonywanie</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="999"/>
+        <location filename="nsscheme.cpp" line="997"/>
         <source>Scheme execution has finished</source>
         <translation>Wykonywanie schematu zakończone</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="315"/>
-        <location filename="nsscheme.cpp" line="337"/>
+        <location filename="nsscheme.cpp" line="303"/>
+        <location filename="nsscheme.cpp" line="332"/>
         <source>No sequence</source>
         <translation>Brak sekwencji</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="87"/>
+        <location filename="nsscheme.cpp" line="81"/>
         <source>Execution error</source>
         <translation>Błąd wykonania</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="87"/>
+        <location filename="nsscheme.cpp" line="81"/>
         <source>Index for array %1 out of bounds</source>
         <translation>Indeks dla tablicy %1 poza granicami</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="304"/>
+        <location filename="nsscheme.cpp" line="292"/>
         <source>Type check failed for identifier %1</source>
         <translation>Sprawdzenie typu dla identyfikatora %1 nie powiodło się</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="315"/>
+        <location filename="nsscheme.cpp" line="303"/>
         <source>Select sequence instruction to append</source>
         <translation>Wybierz instrukcję sekwencji do dołączenia</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="337"/>
+        <location filename="nsscheme.cpp" line="332"/>
         <source>Select sequence instruction to insert</source>
         <translation>Wybierz instrukcję sekwencji do wstawienia</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="367"/>
-        <location filename="nsscheme.cpp" line="398"/>
+        <location filename="nsscheme.cpp" line="361"/>
+        <location filename="nsscheme.cpp" line="389"/>
         <source>No instruction</source>
         <translation>Brak instrukcji</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="367"/>
+        <location filename="nsscheme.cpp" line="361"/>
         <source>Select instruction to edit</source>
         <translation>Wybierz instrukcję do edycji</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="398"/>
+        <location filename="nsscheme.cpp" line="389"/>
         <source>Select instruction to remove</source>
         <translation>Wybierz instrukcję do usunięcia</translation>
     </message>
     <message>
-        <source>Array size</source>
-        <translation type="obsolete">Rozmiar tablicy</translation>
-    </message>
-    <message>
-        <source>Input size for array %1</source>
-        <translation type="obsolete">Wprowadź rozmiar dla tablicy %1</translation>
-    </message>
-    <message>
-        <source>Erroneous string: %1</source>
-        <translation type="obsolete">Błędny łańcuch: %1</translation>
-    </message>
-    <message>
-        <location filename="nsscheme.cpp" line="306"/>
+        <location filename="nsscheme.cpp" line="294"/>
         <source>Instruction contents too short</source>
         <translation>Treść instrukcji jest za krótka</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="307"/>
+        <location filename="nsscheme.cpp" line="295"/>
         <source>String that caused syntax error: %1</source>
         <translation>Łańcuch, który spowodował błąd składniowy: %1</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="488"/>
+        <location filename="nsscheme.cpp" line="482"/>
         <source>SVG images (*.svg)</source>
         <translation>Obrazy SVG (*.svg)</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="496"/>
+        <location filename="nsscheme.cpp" line="490"/>
         <source>Export to SVG image file succesful</source>
         <translation>Eksport do pliku graficznego SVG pomyślny</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="501"/>
-        <location filename="nsscheme.cpp" line="1121"/>
+        <location filename="nsscheme.cpp" line="495"/>
+        <location filename="nsscheme.cpp" line="1109"/>
         <source>Export to SVG image file failed:
 %1</source>
         <translation>Eksport do pliku graficznego SVG niepomyślny
 %1</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="748"/>
+        <location filename="nsscheme.cpp" line="740"/>
         <source>NSBuilder - file load error</source>
         <translation>NSBuilder - błąd otwierania pliku</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="748"/>
+        <location filename="nsscheme.cpp" line="740"/>
         <source>Error loading NS Scheme xml file</source>
         <translation>Błąd podczas otwierania pliku xml z schematem NS</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="1028"/>
-        <source>Array dimension</source>
-        <translation>Wymiar tablicy</translation>
-    </message>
-    <message>
-        <location filename="nsscheme.cpp" line="1029"/>
-        <source>Input number of elements in %2. dimension for array %1</source>
-        <translation>Podaj liczbę elementów w %2 wymiarze dla tablicy %1</translation>
-    </message>
-    <message>
-        <location filename="nsscheme.cpp" line="1120"/>
-        <location filename="nsscheme.cpp" line="1213"/>
-        <location filename="nsscheme.cpp" line="1215"/>
+        <location filename="nsscheme.cpp" line="1108"/>
+        <location filename="nsscheme.cpp" line="1200"/>
+        <location filename="nsscheme.cpp" line="1202"/>
         <source>NS Builder - put status</source>
         <translation>NS Builder - stan wysyłania</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="1213"/>
+        <location filename="nsscheme.cpp" line="1200"/>
         <source>&lt;b&gt;Unable to put file on server&lt;/b&gt;&lt;br/&gt;%1</source>
         <translation>&lt;b&gt;Nie udało się umieścić pliku na serwerze&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
-        <location filename="nsscheme.cpp" line="1215"/>
+        <location filename="nsscheme.cpp" line="1202"/>
         <source>&lt;b&gt;File has been put on server&lt;/b&gt;&lt;br/&gt;%1</source>
         <translation>&lt;b&gt;Plik został umieszczony na serwerze&lt;/b&gt;&lt;br/&gt;%1</translation>
-    </message>
-    <message>
-        <source>Unable to put file on server</source>
-        <translation type="obsolete">Nie udało się wysłać pliku na serwer</translation>
-    </message>
-    <message>
-        <source>File has been put on server</source>
-        <translation type="obsolete">Plik został wysłany na serwer</translation>
     </message>
 </context>
 <context>
@@ -1058,29 +989,25 @@ przed zamknięciem tego pliku?</translation>
     </message>
 </context>
 <context>
-    <name>NaveValueDialog</name>
+    <name>NameValueDialog</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Okno wyboru</translation>
-    </message>
-    <message>
-        <location filename="navevaluedialog.ui" line="14"/>
+        <location filename="namevaluedialog.ui" line="14"/>
         <source>NameValueDialog</source>
         <translation>Okno wyboru nazwa/wartość</translation>
     </message>
     <message>
-        <location filename="navevaluedialog.ui" line="47"/>
+        <location filename="namevaluedialog.ui" line="47"/>
         <source>Name</source>
         <translation>Nazwa</translation>
     </message>
     <message>
-        <location filename="navevaluedialog.ui" line="52"/>
+        <location filename="namevaluedialog.ui" line="52"/>
         <source>Value</source>
         <translation>Wartość</translation>
     </message>
     <message>
-        <location filename="navevaluedialog.ui" line="62"/>
-        <location filename="navevaluedialog.ui" line="73"/>
+        <location filename="namevaluedialog.ui" line="62"/>
+        <location filename="namevaluedialog.ui" line="73"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -1088,26 +1015,14 @@ przed zamknięciem tego pliku?</translation>
 <context>
     <name>OutputInstruction</name>
     <message>
-        <source>&lt;empty&gt;</source>
-        <translation type="obsolete">pusty</translation>
-    </message>
-    <message>
         <location filename="outputinstruction.cpp" line="24"/>
         <source>empty</source>
         <translation>pusty</translation>
     </message>
     <message>
-        <source>Variable %1 has value %2</source>
-        <translation type="obsolete">Zmienna %1 ma wartość %2</translation>
-    </message>
-    <message>
         <location filename="outputinstruction.cpp" line="205"/>
         <source>Output</source>
         <translation>Wyjście</translation>
-    </message>
-    <message>
-        <source>Array element has value %1</source>
-        <translation type="obsolete">Element tablicy ma wartość %1</translation>
     </message>
 </context>
 <context>
@@ -1172,14 +1087,14 @@ przed zamknięciem tego pliku?</translation>
 <context>
     <name>SelectionCondition</name>
     <message>
-        <location filename="selection.cpp" line="230"/>
-        <location filename="selectioncondition.cpp" line="118"/>
+        <location filename="selection.cpp" line="220"/>
+        <location filename="selectioncondition.cpp" line="115"/>
         <source>YES</source>
         <translation>TAK</translation>
     </message>
     <message>
-        <location filename="selection.cpp" line="231"/>
-        <location filename="selectioncondition.cpp" line="120"/>
+        <location filename="selection.cpp" line="221"/>
+        <location filename="selectioncondition.cpp" line="117"/>
         <source>NO</source>
         <translation>NIE</translation>
     </message>
@@ -1212,17 +1127,17 @@ przed zamknięciem tego pliku?</translation>
         <translation>Wybierz czcionkę ...</translation>
     </message>
     <message>
-        <location filename="settingsdialog.ui" line="414"/>
+        <location filename="settingsdialog.ui" line="333"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="settingsdialog.ui" line="421"/>
+        <location filename="settingsdialog.ui" line="340"/>
         <source>Apply</source>
         <translation>Zastosuj</translation>
     </message>
     <message>
-        <location filename="settingsdialog.ui" line="428"/>
+        <location filename="settingsdialog.ui" line="347"/>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
@@ -1250,36 +1165,6 @@ przed zamknięciem tego pliku?</translation>
         <location filename="settingsdialog.ui" line="281"/>
         <source>ms</source>
         <translation>ms</translation>
-    </message>
-    <message>
-        <location filename="settingsdialog.ui" line="300"/>
-        <source>Collaboration</source>
-        <translation>Współpraca</translation>
-    </message>
-    <message>
-        <location filename="settingsdialog.ui" line="308"/>
-        <source>Host name</source>
-        <translation>Nazwa serwera</translation>
-    </message>
-    <message>
-        <location filename="settingsdialog.ui" line="315"/>
-        <source>212.182.18.110</source>
-        <translation>212.182.18.110</translation>
-    </message>
-    <message>
-        <location filename="settingsdialog.ui" line="326"/>
-        <source>Port number</source>
-        <translation>Numer portu</translation>
-    </message>
-    <message>
-        <location filename="settingsdialog.ui" line="364"/>
-        <source>Server application path</source>
-        <translation>Ścieżka do aplikacji na serwerze</translation>
-    </message>
-    <message>
-        <location filename="settingsdialog.ui" line="371"/>
-        <source>/cgi-bin/vbserver.pl</source>
-        <translation>/cgi-bin/vbserver.pl</translation>
     </message>
 </context>
 <context>
@@ -1316,10 +1201,6 @@ przed zamknięciem tego pliku?</translation>
         <location filename="variableeditor.ui" line="51"/>
         <source>Value</source>
         <translation>Wartość</translation>
-    </message>
-    <message>
-        <source>Delete variable</source>
-        <translation type="obsolete">Usuń zmienną</translation>
     </message>
     <message>
         <location filename="variableeditor.ui" line="89"/>

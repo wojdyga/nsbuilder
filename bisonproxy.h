@@ -22,7 +22,7 @@ struct VarIndex
     ~VarIndex();
 
     static VarIndex integerIndex(unsigned int i);
-    static VarIndex multiIndex(QList<unsigned int> ind, QList<unsigned int> dims);
+    static VarIndex multiIndex(QList<unsigned int> indexes, QList<DimensionDescriptor> dimensions);
 };
 
 class ProgramVariables : public QObject
@@ -36,9 +36,6 @@ public:
     IdentsMap *map();
 
     ident_val_t* byName(QString n);
-
-    void formatXMLNode(QDomDocument& document, QDomNode& parent);
-    bool setAsXMLNode(QDomNode& node);
 
     BaseValue& getVariableValue(const QString &name);
     void setVariableValue(const QString &name, BaseValue v);

@@ -9,6 +9,8 @@ win32:DEFINES		+= WIN32
 win32:QMAKE_YACC	= bison
 win32:QMAKE_MOVE	= ren
 
+QMAKE_CXXFLAGS += -std=c++11
+
 SVN_VER=$$cat(SVN_VERSION_FILE)
 
 DEFINES                 += SVN_VER=\\\"$$SVN_VER\\\"
@@ -64,7 +66,9 @@ HEADERS       = mainwindow.h \
 		imp_idents.h \
                 bisonproxy.h \
     commands.h \
-    namevaluedialog.h
+    namevaluedialog.h \
+    dimensiondescriptor.h \
+    arraydimensiondialog.h
 
 SOURCES       = main.cpp \
                 mainwindow.cpp \
@@ -90,7 +94,9 @@ SOURCES       = main.cpp \
 		bisonproxy.cpp \
     returninstruction.cpp \
     commands.cpp \
-    namevaluedialog.cpp
+    namevaluedialog.cpp \
+    dimensiondescriptor.cpp \
+    arraydimensiondialog.cpp
 
 FORMS         = instructioneditor.ui \
                 instructionwizard.ui \
@@ -98,7 +104,8 @@ FORMS         = instructioneditor.ui \
 		nsschemewizard.ui \
 		variableeditor.ui \
 		settingsdialog.ui \
-    namevaluedialog.ui
+    namevaluedialog.ui \
+    arraydimensiondialog.ui
 
 TRANSLATIONS  = nsbuilder_pl.ts
 
