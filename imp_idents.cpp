@@ -199,26 +199,6 @@ QList<DimensionDescriptor> Type::arrayDimensions() const
     return QList<DimensionDescriptor>();
 }
 
-QString Type::arrayDimensionsSizesString() const
-{
-    QString retval;
-    foreach (const DimensionDescriptor &dim, arrayDimensions()) {
-        retval.append(dim.getSize()).append(',') ;
-    }
-    retval.chop(1);
-    return retval;
-}
-
-QString Type::arrayDimensionsFirstIndexesString() const
-{
-    QString retval;
-    foreach (const DimensionDescriptor &dim, arrayDimensions()) {
-        retval.append(dim.getFirstIndex()).append(',') ;
-    }
-    retval.chop(1);
-    return retval;
-}
-
 QString Type::arrayIndexType() const
 {
     QString retval;
@@ -356,10 +336,6 @@ bool ident_val_t::setArraySize(int size)
 #ifdef DEBUG4
             qDebug("new pointer %p", v.indval);
 #endif
-
-
-
-
         }
         v.indval->resize(size + 1);
         BaseValue bv(Double, 0.0);
@@ -368,27 +344,6 @@ bool ident_val_t::setArraySize(int size)
     }
 
     return t.tc == Array;
-}
-
-bool ident_val_t::setArrayDimensions(QList<QByteArray> dims)
-{
-    setArrayType(dims.count());
-    QByteArray buf = dims.front();
-    dims.front();
-    dims.pop_front();
-
-    t.arrayDimension = DimensionDescriptor(buf.toInt());
-
-    Type *typ = &t;
-    foreach (QByteArray buf, dims) {
-        if (typ->subtype) {
-            typ->subtype->arrayDimension = DimensionDescriptor(buf.toInt());
-            typ = typ->subtype;
-        } else
-            return false;
-    }
-    qDebug() << t.toString();
-    return true;
 }
 
 QString ident_val_t::valueToString() const

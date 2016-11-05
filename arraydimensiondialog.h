@@ -13,10 +13,9 @@ class ArrayDimensionDialog : public QDialog
     Q_OBJECT
 
 public:
-    static ArrayDimensionDialog & getInstance();
     ~ArrayDimensionDialog();
 
-    DimensionDescriptor getDimensionData(const QString &arrayName, unsigned int dimensionNumber);
+    static DimensionDescriptor getDimensionData(const QString &arrayName, unsigned int dimensionNumber);
 
     ArrayDimensionDialog(const ArrayDimensionDialog &) = delete;
     void operator=(const ArrayDimensionDialog &) = delete;

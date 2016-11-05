@@ -8,12 +8,6 @@ ArrayDimensionDialog::ArrayDimensionDialog(QWidget *parent) :
     ui->setupUi(this);
 }
 
-ArrayDimensionDialog &ArrayDimensionDialog::getInstance()
-{
-    static ArrayDimensionDialog instance(0);
-    return instance;
-}
-
 ArrayDimensionDialog::~ArrayDimensionDialog()
 {
     delete ui;
@@ -21,9 +15,10 @@ ArrayDimensionDialog::~ArrayDimensionDialog()
 
 DimensionDescriptor ArrayDimensionDialog::getDimensionData(const QString &arrayName, unsigned int dimensionNumber)
 {
-    setWindowTitle(tr("Dimension %1 of \"%2\" array properties").arg(dimensionNumber).arg(arrayName));
+    static ArrayDimensionDialog dialog(0);
+    dialog.setWindowTitle(tr("Dimension %1 of \"%2\" array properties").arg(dimensionNumber).arg(arrayName));
     do {
-        exec();
-    } while (ui->dimSizeInput->value() <= 0);
-    return DimensionDescriptor(ui->dimSizeInput->value(), ui->firstIndexInput->value());
+        dialog.exec();
+    } while (dialog.ui->dimSizeInput->value() <= 0);
+    return DimensionDescriptor(dialog.ui->dimSizeInput->value(), dialog.ui->firstIndexInput->value());
 }

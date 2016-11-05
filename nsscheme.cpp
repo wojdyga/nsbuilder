@@ -619,8 +619,6 @@ QDomDocument NSScheme::toXMLDocument()
     checkSyntax.setAttributeNode(checkSyntaxEnabled);
     root.appendChild(checkSyntax);
 
-    m_variables->formatXMLNode(document, root);
-
     m_instructions->formatXMLNode(document, root);
 
     return document;
@@ -812,8 +810,6 @@ bool NSScheme::fromXMLDocument(QDomDocument& document)
                     setSchemeComment(e.firstChild().toText().nodeValue());
                 } else if ((e.tagName() == "author") && e.hasChildNodes()) {
                     setSchemeAuthor(e.firstChild().toText().nodeValue());
-                } else if ((e.tagName() == "variables") && e.hasChildNodes()) {
-                    m_variables->setAsXMLNode(e);
                 } else if (e.tagName() == "pascalCode") {
                     QDomAttr contains = e.attributeNode("contains");
                     m_pascalCode = contains.value().compare("yes") == 0;
@@ -1025,11 +1021,11 @@ void NSScheme::assignArraySizes()
                 int dimensionNumber = 1;
                 long size = 1;
                 while (t && t->tc == Array) {
-                    DimensionDescriptor dimensionDescriptor = ArrayDimensionDialog::getInstance().getDimensionData(id->ident, dimensionNumber);
+                    DimensionDescriptor dimensionDescriptor = ArrayDimensionDialog::getDimensionData(id->ident, dimensionNumber);
                     t->arrayDimension = dimensionDescriptor;
 
 #ifdef DEBUGD
-                    qDebug() << "d:" << d << "->" << dimensionDescriptor.toString();
+                    qDebug() << "d:" << d << "->" << dimensionDescriptor;
 #endif
                     dimensionNumber++;
                     size *= dimensionDescriptor.getSize();

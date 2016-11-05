@@ -37,9 +37,6 @@ public:
 
     ident_val_t* byName(QString n);
 
-    void formatXMLNode(QDomDocument& document, QDomNode& parent);
-    bool setAsXMLNode(QDomNode& node);
-
     BaseValue& getVariableValue(const QString &name);
     void setVariableValue(const QString &name, BaseValue v);
     BaseValue& getIndexedVariableValue(const QString& name, VarIndex i);

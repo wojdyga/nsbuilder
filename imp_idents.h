@@ -34,8 +34,6 @@ struct Type
 
     QString toString() const;
     QList<DimensionDescriptor> arrayDimensions() const;
-    QString arrayDimensionsSizesString() const;
-    QString arrayDimensionsFirstIndexesString() const;
     QString arrayIndexType() const;
     static QString typeConstructorString(TypeConstructor tc);
 };
@@ -87,7 +85,6 @@ struct ident_val_t
     bool setTypeConstructor(TypeConstructor _tc);
     bool setArrayType(int dimCount);
     bool setArraySize(int size);
-    bool setArrayDimensions(QList<QByteArray> dims);
 
     QString valueToString() const;
     bool setValueFromString(QString s);
