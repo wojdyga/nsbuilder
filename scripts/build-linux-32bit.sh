@@ -4,6 +4,7 @@
 qmake 'CONFIG+=m32'
 make clean
 make
+lrelease nsbuilder.pro #translations
 
 if [ $? -eq 0 ]; then
 	rm -rf release
