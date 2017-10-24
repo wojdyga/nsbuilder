@@ -488,8 +488,8 @@ Składnia poprawna,ale zawiodła kontrola typów</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="544"/>
-        <source>Appends instruction to the end of current instruction</source>
-        <translation>Dołącz instrukcję na koniec bieżącej sekwencji</translation>
+        <source>Appends instruction after the current instruction</source>
+        <translation>Dołącz instrukcję za obecną instrukcją</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="547"/>

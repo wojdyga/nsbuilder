@@ -541,7 +541,8 @@ void MainWindow::createActions()
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 
     appendInstrAct = new QAction(QIcon(":/images/append.png"), tr("Append instruction"), this);
-    appendInstrAct->setStatusTip(tr("Appends instruction to the end of current instruction"));
+    appendInstrAct->setStatusTip(tr("Appends instruction after the current instruction"));
+    appendInstrAct->setShortcut(tr("Insert"));
     connect(appendInstrAct, SIGNAL(triggered()), this, SLOT(appendInstruction()));
 
     insertInstrAct = new QAction(QIcon(":/images/insert.png"), tr("Insert instruction"), this);
