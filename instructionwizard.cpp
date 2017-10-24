@@ -24,8 +24,7 @@ InstructionWizardDialog::InstructionWizardDialog(MainWindow *parent)
     instructionEditor = new ::InstructionEditorForm(ui.contentsFrame);
     ui.contentsFrame->layout()->addWidget(instructionEditor);
 
-    ui.nextButton->setShortcut(QKeySequence(Qt::Key_PageDown));
-    ui.finishButton->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_PageDown));
+    ui.nextButton->setShortcut(QKeySequence(Qt::Key_PageDown));    
 }
 
 void InstructionWizardDialog::on_prevButton_clicked()

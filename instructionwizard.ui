@@ -250,6 +250,9 @@
        <property name="text">
         <string>Finish</string>
        </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
     </layout>
